@@ -3,23 +3,70 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GTA VI trophy checklist</title>
+<title>Leonida Trophy Guide — GTA VI (PS5)</title>
+<meta name="description" content="An offline guide and tracker for all 55 PlayStation 5 trophies of Grand Theft Auto VI: official names, descriptions and grades, a guide with sources for each, a roadmap to the platinum, and a checklist that saves your progress.">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <h1>GTA VI trophy checklist</h1>
-  <p id="progress">0 of 55 earned</p>
+<header class="hero">
+  <p class="eyebrow">Grand Theft Auto VI &middot; PlayStation 5 &middot; Unofficial fan guide</p>
+  <h1>Leonida Trophy Guide</h1>
+  <p class="lede">All 55 trophies &mdash; 1 platinum, 2 gold, 6 silver, 46 bronze &mdash; each with its official name, description and grade, a guide in our own words with its sources, and a tracker that saves your progress in this browser.</p>
+  <div class="progress" id="progress">
+    <div class="progress-count"><strong id="earnedCount">0</strong><span> / 55 earned</span><span id="progressPct" class="pct"></span></div>
+    <div class="bar" role="progressbar" aria-label="Trophies earned" aria-valuemin="0" aria-valuemax="55" aria-valuenow="0" id="barWrap"><div id="barFill"></div></div>
+    <div class="grade-chips" id="gradeChips"></div>
+  </div>
+  <div class="actions">
+    <button id="exportBtn" type="button">Export progress</button>
+    <label class="import-btn">Import progress<input id="importFile" type="file" accept="application/json,.json"></label>
+    <button id="resetBtn" type="button">Reset progress</button>
+    <a class="roadmap-link" href="#roadmap">Road to the Platinum &darr;</a>
+  </div>
+  <p class="missable-banner" id="missableBanner"></p>
 </header>
-<div class="controls">
-  <label>Grade <select id="grade"><option value="all">All</option><option value="platinum">Platinum</option><option value="gold">Gold</option><option value="silver">Silver</option><option value="bronze">Bronze</option></select></label>
-  <button id="export" type="button">Export progress</button>
-  <label class="import">Import progress <input id="import" type="file" accept="application/json"></label>
-</div>
-<table>
-  <thead><tr><th>Earned</th><th>Trophy</th><th>Grade</th><th>How to get it</th></tr></thead>
-  <tbody id="rows"></tbody>
-</table>
+
+<section class="controls" aria-label="Filters and settings">
+  <input id="search" type="search" placeholder="Search trophies, guides, sources&hellip;" aria-label="Search trophies">
+  <div class="kind-filters" id="kindFilters" role="group" aria-label="Filter by kind"></div>
+  <label class="grade-label">Grade
+    <select id="gradeFilter">
+      <option value="all">All grades</option>
+      <option value="platinum">Platinum</option>
+      <option value="gold">Gold</option>
+      <option value="silver">Silver</option>
+      <option value="bronze">Bronze</option>
+    </select>
+  </label>
+  <label class="toggle"><input type="checkbox" id="spoilerToggle" checked> Hide story spoilers</label>
+  <label class="toggle"><input type="checkbox" id="hideEarned"> Hide earned</label>
+</section>
+
+<main class="layout">
+  <section class="list-col" aria-label="Trophy checklist">
+    <p id="listMeta" class="list-meta"></p>
+    <ul id="trophyList" class="trophy-list"></ul>
+    <p id="emptyState" class="empty" hidden></p>
+  </section>
+  <aside class="detail" id="detail" aria-label="Trophy guide"></aside>
+</main>
+
+<section class="roadmap" id="roadmap">
+  <h2>Road to the Platinum</h2>
+  <p class="roadmap-intro">The order to earn them in, built from the official descriptions: story first, the one missable trophy early, then the character strands, collectibles, activities, and the crime and money trophies &mdash; with 100% completion last. There are no online trophies and no difficulty trophies, so the platinum is long, not hard. Cheats are reported to disable trophies, so leave them off for the whole run.</p>
+  <div class="missable-box">
+    <h3>One missable trophy</h3>
+    <p><strong>Positive Mental Attitude</strong> &mdash; meditate at all 18 spots. Lucia&rsquo;s balcony meditation spot in Chapter 1 counts toward the 18 and disappears after that chapter, and the game has no mission replay. Do it in Chapter 1. Keep a manual save at the start of every chapter and one before the final mission: that is the safety net for everything else.</p>
+    <p class="missable-note">Every other trophy is believed obtainable after the story, in free roam. Story missions are not replayable, but their trophies pop on completion, so none of them can be missed &mdash; only the balcony spot can.</p>
+  </div>
+  <ol class="stages" id="stages"></ol>
+</section>
+
+<footer>
+  <p>Unofficial fan guide, not affiliated with Rockstar Games, Sony or PlayStation. No Rockstar logo or official artwork is used anywhere in this guide; the look is our own. Trophy names and descriptions are shown as PlayStation publishes them; every guide is written in our own words and cites its sources beside it.</p>
+  <p>List as published 18 November 2026 (Exophase, reported by Push Square). 28 of the 55 trophies are hidden on PlayStation until earned; the spoiler setting above mirrors that. Where no unlock method had been confirmed at launch, the guide says so instead of inventing one.</p>
+  <p class="sources-line">List sources: Planet GTA 6, Push Square, Exophase. Method and roadmap sources: Output Lag, EGamers, KeenGamer, GTA Vice City Hub. Full links sit beside each trophy&rsquo;s guide.</p>
+</footer>
 <script type="module" src="app.js"></script>
 </body>
 </html>
